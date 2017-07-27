@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Popsicle Calculator</title>
+      <title>S</title>
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="css/simon.css" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -31,18 +31,21 @@
                 
                 <div class="col-md-6" id="block-foxs">
                     <div class="row">
-                        <img src="images/foxgreen.png"  id="fox1">
-                        <img src="images/foxred.png" id="fox2">
+                        <input type="image" src="images/foxgreen.png" id="fox1" onclick="captionGame(0)" disabled  />
+                        <input type="image" src="images/foxred.png" id="fox2" onclick="captionGame(1)" disabled />
                     </div>
                     <div class="row">
-                        <img src="images/foxyellow.png" id="fox3">
-                        <img src="images/foxblue.png" id="fox4">
+                        <input type="image" src="images/foxyellow.png" id="fox3" onclick="captionGame(2)" disabled />
+                        <input type="image" src="images/foxblue.png" id="fox4" onclick="captionGame(3)" disabled />
                     </div>
                      
                      
                 </div>
                 
-                 <div class="col-md-3 text-center"> <button type="button" class="btn buttons-default" id="button" onclick="PlayMemory()">play</button></div>
+                 <div class="col-md-3 text-center"> 
+                     <button type="button" class="btn buttons-default" id="button" onclick="PlayMemory()">play</button>
+                     <h2 id="Message">Good Luck</h2>
+                </div>
             </div>
      
         </div>
