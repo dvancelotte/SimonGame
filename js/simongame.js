@@ -14,26 +14,30 @@ function PlayMemory(){
     
     var score = document.getElementById("score");
     score.innerHTML = memoryCount;
-
-    memoryCount ++;
-    
-    memoryArray = creatMemory(memoryCount);
+  
+  $("#buttonPlay").prop('disabled',true);   
+    memoryArray = creatMemory(memoryArray);
     fox = 0;
     
     var loopfox = function(memoryArray){
        
         animateFox(memoryArray[fox],function(){
-            fox++;
-            
             if(fox<memoryArray.length){
                 loopfox(memoryArray);
             }else{
                 refreshInput(false);
             }
+          fox++;
         });
     };
     
-    function animateFox(memoryArray,callback){      
+
+    
+    loopfox(memoryArray);
+
+}
+
+  function animateFox(memoryArray,callback){      
         
         $("#"+foxs[memoryArray].id).animate({opacity: '1.0'});
         var audio = new Audio(foxs[memoryArray].sound);
@@ -43,20 +47,12 @@ function PlayMemory(){
             callback();
         };
         
-    }
-    
-    loopfox(memoryArray);
-   
+  }
 
-    
-}
-
-function creatMemory(memoryCount){    
-    array =[];    
-    for (i=0; i<memoryCount; i++){
-        array.push(Math.floor(Math.random() * 4));        
-    }    
-    return array;    
+function creatMemory(memoryArray){    
+         memoryArray.push(Math.floor(Math.random() * 4));
+         memoryCount++;
+    return memoryArray;    
 }
 
 function refreshInput(flag){
@@ -81,6 +77,7 @@ function captionGame(numberFox){
             if(captionGameCount==memoryCount){
                 refreshInput(true);
                 document.getElementById("Message").innerHTML = "good";
+                PlayMemory();
             }
         }
         else{
